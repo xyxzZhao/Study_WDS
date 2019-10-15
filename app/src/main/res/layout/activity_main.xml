@@ -46,5 +46,11 @@
             android:text="LED4"
             android:onClick="onCheckboxClicked"/>
 
+        <Button
+            android:id="@+id/SendMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send Message" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,19 +2,25 @@ package com.example.study_wds;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
     private boolean LEDOn = true;
+    private final String TAG = "study_wds";
     private Button button = null;
     private CheckBox LED1 = null;
     private CheckBox LED2 = null;
     private CheckBox LED3 = null;
     private CheckBox LED4 = null;
+
+    private Button SendMessage = null;
+    private int SendNum = 0;
 
     public void onCheckboxClicked(View view) {
         // Is the view now checked?
@@ -63,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
         LED3 = (CheckBox) findViewById(R.id.LED3);
         LED4 = (CheckBox) findViewById(R.id.LED4);
 
+        SendMessage = (Button) findViewById(R.id.SendMessage);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,6 +91,14 @@ public class MainActivity extends AppCompatActivity {
                 LEDOn = !LEDOn;
             }
 
+        });
+
+        SendMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SendNum++;
+                Log.d(TAG, "Send Message: " + SendNum);
+            }
         });
 
     }
